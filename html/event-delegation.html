@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tile {
+            height: 100px;
+            width: 25%;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click anywhere!</h1>
+    <div id="container">
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+      </div>
+
+      <script>
+        function random(number) {
+            return Math.floor(Math.random() * number);
+        }
+
+        function bgChange() {
+            const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+            return rndCol;
+        }
+
+        const container = document.querySelector("#container");
+
+        /*
+        Note: In this example, we're using event.target to get the element
+        that was the target of the event (that is, the innermost element). 
+        If we wanted to access the element that handled this event (in 
+        this case the container) we could use event.currentTarget.
+        */
+        container.addEventListener("click", (event) => {
+            event.target.style.backgroundColor = bgChange();
+        });
+
+      </script>
+      
+</body>
+</html>
